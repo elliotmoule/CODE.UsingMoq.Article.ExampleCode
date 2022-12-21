@@ -22,6 +22,16 @@ public static class ExampleClass
 
 		return false;
 	}
+
+	public static bool ChecksSequenceIsCorrect(IDateTimeProvider dateTimeProvider)
+	{
+		var values = new bool[] { false, false, false };
+		values[0] = dateTimeProvider.DayOfWeek() == DayOfWeek.Sunday;
+		values[1] = dateTimeProvider.DayOfWeek() == DayOfWeek.Tuesday;
+		values[2] = dateTimeProvider.DayOfWeek() == DayOfWeek.Saturday;
+
+		return values.All(x => x == true);
+	}
 }
 
 public class InheritingExample : BaseExample

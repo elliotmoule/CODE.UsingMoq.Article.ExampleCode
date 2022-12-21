@@ -7,7 +7,7 @@ public class RateCalculatorTests
 {
 	[Test]
 	[Ignore(reason: "This test is designed to fail, so should be skipped, given that it might not be Sunday when it is ran.")]
-	public void GetPayRate_IsSunday_ReturnsHigherRate_Figure2()
+	public void GetPayRate_IsSunday_ReturnsHigherRate_Snippet2()
 	{
 		// Arrange
 		var rateCalculator = new RateCalculator();
@@ -20,7 +20,7 @@ public class RateCalculatorTests
 	}
 
 	[Test]
-	public void GetPayRate_IsSunday_ReturnsHigherRate_Figure4()
+	public void GetPayRate_IsSunday_ReturnsHigherRate_Snippet4()
 	{
 		// Arrange
 		var rateCalculator = new RateCalculator();
@@ -38,7 +38,7 @@ public class RateCalculatorTests
 	}
 
 	[Test]
-	public void GetPayRate_IsSunday_ReturnsHigherRate_Figure5()
+	public void GetPayRate_IsSunday_ReturnsHigherRate_Snippet5()
 	{
 		// Arrange
 		var rateCalculator = new RateCalculator();
@@ -57,7 +57,7 @@ public class RateCalculatorTests
 	}
 
 	[Test]
-	public void DoNewAction_MockGet_ReturnsFalse_Figure6()
+	public void DoNewAction_MockGet_ReturnsFalse_Snippet6()
 	{
 		IExampleInterface foo =
 			ExampleClass.ReturnedFromSomewhereElse();
@@ -69,7 +69,7 @@ public class RateCalculatorTests
 	}
 
 	[Test]
-	public void GetPayRate_IsSunday_ReturnsHigherRate_Figure7()
+	public void GetPayRate_IsSunday_ReturnsHigherRate_Snippet7()
 	{
 		// Arrange
 		var rateCalculator = new RateCalculator();
@@ -90,7 +90,7 @@ public class RateCalculatorTests
 	}
 
 	[Test]
-	public void GetPayRate_IsSunday_ReturnsHigherRate_Figure8()
+	public void GetPayRate_IsSunday_ReturnsHigherRate_Snippet8()
 	{
 		// Arrange
 		var rateCalculator = new RateCalculator();
@@ -120,7 +120,7 @@ public class RateCalculatorTests
 	}
 
 	[Test]
-	public void GetPayRate_IsSunday_ReturnsHigherRate_Figure9()
+	public void GetPayRate_IsSunday_ReturnsHigherRate_Snippet9()
 	{
 		// Arrange
 		var rateCalculator = new RateCalculator();
@@ -138,7 +138,7 @@ public class RateCalculatorTests
 	}
 
 	[Test]
-	public void GetPayRate_IsSunday_ReturnsHigherRate_Figure10()
+	public void GetPayRate_IsSunday_ReturnsHigherRate_Snippet10()
 	{
 		// Arrange
 		var rateCalculator = new RateCalculator();
@@ -165,7 +165,7 @@ public class RateCalculatorTests
 	}
 
 	[Test]
-	public void MyCalculatorMethod_ReturnsTrue_Figure11()
+	public void MyCalculatorMethod_ReturnsTrue_Snippet11()
 	{
 		// Arrange
 		var mock = new Mock<IExampleInterface>();
@@ -183,7 +183,7 @@ public class RateCalculatorTests
 	}
 
 	[Test]
-	public void MoqDemo_ThrowException_Figure12()
+	public void MoqDemo_ThrowException_Snippet12()
 	{
 		// Arrange
 		var mock = new Mock<IDateTimeProvider>();
@@ -199,7 +199,7 @@ public class RateCalculatorTests
 	}
 
 	[Test]
-	public void MoqDemo_ProtectedMocks_Figure13()
+	public void MoqDemo_ProtectedMocks_Snippet13()
 	{
 		// Arrange
 		var mock = new Mock<InheritingExample>();
@@ -218,7 +218,7 @@ public class RateCalculatorTests
 	}
 
 	[Test]
-	public void MoqDemo_Callbacks_Figure14()
+	public void MoqDemo_Callbacks_Snippet14()
 	{
 		// Arrange
 		var values = new bool[] { false, false, false };
@@ -237,22 +237,21 @@ public class RateCalculatorTests
 	}
 
 	[Test]
-	public void MoqDemo_Sequences_Figure15()
+	public void MoqDemo_Sequences_Snippet15()
 	{
 		// Arrange
-		var values = new bool[] { false, false, false };
 		var mock = new Mock<IDateTimeProvider>();
 		mock.SetupSequence(m => m.DayOfWeek())
 			.Returns(DayOfWeek.Sunday)
 			.Returns(DayOfWeek.Tuesday)
 			.Returns(DayOfWeek.Saturday);
 
-		values[0] = mock.Object.DayOfWeek() == DayOfWeek.Sunday;
-		values[1] = mock.Object.DayOfWeek() == DayOfWeek.Tuesday;
-		values[2] = mock.Object.DayOfWeek() == DayOfWeek.Saturday;
+		// Act
+		var result = 
+			ExampleClass.ChecksSequenceIsCorrect(mock.Object);
 
 		// Assert
-		Assert.That(values.All(x => x == true), Is.EqualTo(true));
+		Assert.That(result, Is.EqualTo(true));
 		mock.VerifyAll();
 	}
 }
